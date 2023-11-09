@@ -8,6 +8,8 @@ const choices = ["rock", "paper", "scissors"];
 const drawMsg = document.querySelector(".draw");
 const lossMsg = document.querySelector(".loss");
 const winMsg = document.querySelector(".win");
+const score = document.querySelector(".score");
+const round = document.querySelector(".round");
 
 let playerChoice;
 let computerChoice;
