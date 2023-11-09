@@ -16,6 +16,10 @@ body {
   align-items: center;
 }
 
+.h1title {
+  padding-bottom: 75px;
+}
+
 .gamebox {
   display: flex;
   flex-direction: column;
