@@ -5,6 +5,10 @@ const playBtn = document.querySelector(".computer");
 const allBtn = document.querySelector("#buttons");
 const choices = ["rock", "paper", "scissors"];
 
+const drawMsg = document.querySelector(".draw");
+const lossMsg = document.querySelector(".loss");
+const winMsg = document.querySelector(".win");
+
 let playerChoice;
 let computerChoice;
 
