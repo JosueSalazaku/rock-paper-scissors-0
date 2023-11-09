@@ -14,6 +14,28 @@ const round = document.querySelector(".round");
 let playerChoice;
 let computerChoice;
 
+function showMessage(messageType) {
+  switch (messageType) {
+    case "draw":
+      drawMsg.style.display = "block";
+      break;
+    case "loss":
+      lossMsg.style.display = "block";
+      break;
+    case "win":
+      winMsg.style.display = "block";
+      break;
+    default:
+      alert(invalide);  
+  }
+}
+
+function hideMessages() {
+  drawMsg.style.display = "none";
+  lossMsg.style.display = "none";
+  winMsg.style.display = "none";
+}
+
 function play() {
   const choices = ["rock", "paper", "scissors"];
   computerChoice = choices[Math.floor(Math.random() * 3)];
@@ -21,15 +43,15 @@ function play() {
   if (playerChoice) {
     if (playerChoice === computerChoice) {
       //   console.log("It's a draw!");
-      drawMsg.style.visibility = "visible";
+      showMessage("draw");
     } else if (
       (playerChoice === "rock" && computerChoice === "scissor") ||
       (playerChoice === "paper" && computerChoice === "rock") ||
       (playerChoice === "scissor" && computerChoice === "paper")
     ) {
-      winMsg.style.visibility = "visible";
+      showMessage("win");
     } else {
-      lossMsg.style.visibility = "visible";
+      showMessage("loss");
     }
 
     playerChoice = null;
