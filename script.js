@@ -18,15 +18,16 @@ function play() {
 
   if (playerChoice) {
     if (playerChoice === computerChoice) {
-      console.log("It's a draw!");
+      //   console.log("It's a draw!");
+      drawMsg.style.visibility = "visible";
     } else if (
       (playerChoice === "rock" && computerChoice === "scissor") ||
       (playerChoice === "paper" && computerChoice === "rock") ||
       (playerChoice === "scissor" && computerChoice === "paper")
     ) {
-      console.log("Player wins!");
+      winMsg.style.visibility = "visible";
     } else {
-      console.log("Player Lost!");
+      lossMsg.style.visibility = "visible";
     }
 
     playerChoice = null;
