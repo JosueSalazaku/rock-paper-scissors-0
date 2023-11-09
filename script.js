@@ -10,6 +10,7 @@ const lossMsg = document.querySelector(".loss");
 const winMsg = document.querySelector(".win");
 const score = document.querySelector(".score");
 const round = document.querySelector(".round");
+const resetBtn = document.querySelector(".reset");
 
 let playerChoice;
 let computerChoice;
@@ -34,6 +35,14 @@ function hideMessages() {
   drawMsg.style.display = "none";
   lossMsg.style.display = "none";
   winMsg.style.display = "none";
+}
+
+function validatePlayerChoice(playerChoice) {
+  if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function play() {
@@ -61,6 +70,7 @@ function play() {
   }
 }
 
+
 rockBtn.addEventListener("click", function () {
   playerChoice = "rock";
   console.log("rock");
@@ -77,3 +87,9 @@ scissorBtn.addEventListener("click", function () {
 });
 
 playBtn.addEventListener("click", play);
+
+resetBtn.addEventListener("click", function () {
+  hideMessages();
+  playerChoice = null;
+  computerChoice = null;
+});
