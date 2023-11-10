@@ -6,6 +6,7 @@
 body {
   background: rgb(56, 56, 189);
   color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -39,9 +40,7 @@ button {
   font-weight: 600;
 }
 
-h2 {
- 
-  transition: 0.3s;
-  transform: scale(1.5);
-  visibility: hidden;
+button:focus {
+  background-color: brown;
+  color: white
 }
