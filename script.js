@@ -8,6 +8,7 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorBtn = document.querySelector("#scissor");
 const playBtn = document.querySelector("#computer");
+const resultContainer = document.querySelector("#resultContainer");
 const score = document.querySelector("#score");
 const round = document.querySelector("#round");
 const resetBtn = document.querySelector("#reset");
@@ -19,6 +20,10 @@ let playerScore = 0;
 let computerScore = 0;
 let roundCount = 0;
 
+// Disable play button initially
+playBtn.disabled = true;
+
+// Define the missing function
 function validatePlayerChoice(playerChoice) {
   return ["rock", "paper", "scissors"].includes(playerChoice);
 }
@@ -26,22 +31,26 @@ function validatePlayerChoice(playerChoice) {
 function displayResult(result) {
   const resultElement = document.createElement("h2");
   resultElement.textContent = result;
-
-  const resultContainer = document.querySelector("#resultContainer");
-  
   resultContainer.appendChild(resultElement);
 
+  // Remove the result after a delay (e.g., 1500 milliseconds)
   setTimeout(() => {
     resultElement.remove();
   }, 1500);
 }
 
-
 function updateScore() {
   score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
 }
 
+function enablePlayButton() {
+  playBtn.disabled = false;
+}
+
 function play() {
+  // Disable play button before displaying result
+  playBtn.disabled = false;
+
   computerChoice = choices[Math.floor(Math.random() * 3)];
 
   if (playerChoice) {
@@ -75,15 +84,17 @@ function play() {
 
 rockBtn.addEventListener("click", function () {
   playerChoice = "rock";
-  play();
+  enablePlayButton();
 });
 
 paperBtn.addEventListener("click", function () {
   playerChoice = "paper";
-  play();
+  enablePlayButton();
 });
 
 scissorBtn.addEventListener("click", function () {
   playerChoice = "scissors";
-  play();
+  enablePlayButton();
 });
+
+playBtn.addEventListener("click", play);
