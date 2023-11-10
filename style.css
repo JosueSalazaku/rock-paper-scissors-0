@@ -17,6 +17,10 @@ body {
   align-items: center;
 }
 
+h2 {
+  font-size: x-large;
+}
+
 .h1title {
   padding-bottom: 75px;
 }

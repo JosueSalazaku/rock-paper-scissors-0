@@ -29,7 +29,7 @@ function validatePlayerChoice(playerChoice) {
 }
 
 function displayResult(result) {
-  const resultElement = document.createElement("h2");
+  const resultElement = document.createElement("h1");
   resultElement.textContent = result;
   resultContainer.appendChild(resultElement);
 
