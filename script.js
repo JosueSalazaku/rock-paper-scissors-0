@@ -1,3 +1,9 @@
+const outCome = {
+  win: "You win, you lucky bastard!",
+  loss: "Damn tough loss, bro",
+  draw: "That's a draw"
+};
+
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorBtn = document.querySelector("#scissor");
@@ -6,25 +12,30 @@ const score = document.querySelector("#score");
 const round = document.querySelector("#round");
 const resetBtn = document.querySelector("#reset");
 const choices = ["rock", "paper", "scissors"];
-const outCome = {
-  win: "You win, you lucky bastard!",
-  loss: "Damn tough loss, bro",
-  draw: "That's a draw"
-};
 
 let playerChoice = '';
 let computerChoice = '';
 let playerScore = 0;
 let computerScore = 0;
-let roundCount = 1;
+let roundCount = 0;
 
 function validatePlayerChoice(playerChoice) {
   return ["rock", "paper", "scissors"].includes(playerChoice);
 }
 
 function displayResult(result) {
-  console.log(result); // You can replace this with code to update the UI
+  const resultElement = document.createElement("h2");
+  resultElement.textContent = result;
+
+  const resultContainer = document.querySelector("#resultContainer");
+  
+  resultContainer.appendChild(resultElement);
+
+  setTimeout(() => {
+    resultElement.remove();
+  }, 1500);
 }
+
 
 function updateScore() {
   score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
@@ -64,14 +75,15 @@ function play() {
 
 rockBtn.addEventListener("click", function () {
   playerChoice = "rock";
+  play();
 });
 
 paperBtn.addEventListener("click", function () {
   playerChoice = "paper";
+  play();
 });
 
 scissorBtn.addEventListener("click", function () {
   playerChoice = "scissors";
+  play();
 });
-
-playBtn.addEventListener("click", play);
